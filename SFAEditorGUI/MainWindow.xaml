@@ -12,15 +12,29 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="160*"/>
+            <RowDefinition Height="5" />
             <RowDefinition Height="42*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="LogList" Margin="0,1,0,0" Grid.Row="2"/>
-        <Grid x:Name="WorkspaceGrid" Grid.Row="1">
+
+        <ToolBarPanel Grid.Row="0" x:Name="Toolbar" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Button x:Name="OpenBTN" Content="Open" Click="OpenBTN_Click"/>
+            <Separator />
+            <Button x:Name="CreateBTN" Content="Create" Click="CreateBTN_Click"/>
+            <Separator />
+            <Button x:Name="SaveBTN" Content="Save" Click="SaveBTN_Click"/>
+            <Separator />
+            <Button x:Name="SaveAsBTN" Content="SaveAs" Click="SaveAsBTN_Click"/>
+            <Separator />
+            <Button x:Name="UnloadBTN" Content="Unload" Click="UnloadBTN_Click"/>
+            <Separator />
+        </ToolBarPanel>
+        <Grid Grid.Row="1" x:Name="WorkspaceGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="161*"/>
+                <ColumnDefinition Width="5" />
                 <ColumnDefinition Width="639*"/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="HierarchyManagingGrid">
+            <Grid x:Name="HierarchyManagingGrid" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="301*"/>
@@ -37,7 +51,8 @@
                 </ToolBarPanel>
                 <TreeView x:Name="SFATree" Grid.Row="1" SelectedItemChanged="SFATree_SelectedItemChanged"/>
             </Grid>
-            <TabControl x:Name="EditorsTabs" Grid.Column="1">
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="gridSplitter1" ResizeDirection="Columns" />
+            <TabControl x:Name="EditorsTabs" Grid.Column="2">
                 <TabItem x:Name="RawTab" Header="Raw">
                     <Grid x:Name="RawTabGrid" Background="#FFE5E5E5">
                         <Grid.RowDefinitions>
@@ -76,17 +91,7 @@
                 </TabItem>
             </TabControl>
         </Grid>
-        <ToolBarPanel x:Name="Toolbar" HorizontalAlignment="Left" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="0,3,0,2">
-            <Button x:Name="OpenBTN" Content="Open" Click="OpenBTN_Click"/>
-            <Separator />
-            <Button x:Name="CreateBTN" Content="Create" Click="CreateBTN_Click"/>
-            <Separator />
-            <Button x:Name="SaveBTN" Content="Save" Click="SaveBTN_Click"/>
-            <Separator />
-            <Button x:Name="SaveAsBTN" Content="SaveAs" Click="SaveAsBTN_Click"/>
-            <Separator />
-            <Button x:Name="UnloadBTN" Content="Unload" Click="UnloadBTN_Click"/>
-            <Separator />
-        </ToolBarPanel>
+        <GridSplitter x:Name="gridsplitter2" Grid.Row="2" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Rows" />
+        <ListBox Grid.Row="3" x:Name="LogList" />
     </Grid>
 </Window>
