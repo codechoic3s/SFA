@@ -52,10 +52,15 @@ namespace SFAEditor
             return true;
         }
 
-        public void UnloadSFA()
+        public bool UnloadSFA()
         {
             Manager = null;
-            SFAStream.Dispose();
+            if (SFAStream != null)
+            {
+                SFAStream.Dispose();
+                return true;
+            }
+            return false;
         }
     }
 }

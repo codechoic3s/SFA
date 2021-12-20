@@ -91,127 +91,157 @@ namespace SFAEditorGUI
         private void OpenBTN_Click(object sender, RoutedEventArgs e)
         {
             bool state = (bool)OpenFileDialog.ShowDialog(this);
-            if (state)
-            {
-                if (!OpenFileDialog.CheckPathExists)
-                {
-                    AddLog("File not exists.");
-                    return;
-                }
-                var path = OpenFileDialog.FileName;
-                FilePath = path;
-                AddLog($"Openning {path}...");
-                TryLoad(path, ManagingType.Managed);
-                state = App.Editor.Manager.OpenSFA();
-                if (!state)
-                {
-                    AddLog("Broken SFA.");
-                    return;
-                }
-                LoadTree();
-            }
-            else
+            if (!state)
             {
                 AddLog("Not selected file to load SFA.");
             }
+
+            if (!OpenFileDialog.CheckPathExists)
+            {
+                AddLog("File not exists.");
+                return;
+            }
+
+            var path = OpenFileDialog.FileName;
+            FilePath = path;
+            AddLog($"Openning {path}...");
+            TryLoad(path, ManagingType.Managed);
+            state = App.Editor.Manager.OpenSFA();
+
+            if (!state)
+            {
+                AddLog("Broken SFA.");
+                return;
+            }
+
+            LoadTree();
         }
 
         private void CreateBTN_Click(object sender, RoutedEventArgs e)
         {
             var state = (bool)CreateFileDialog.ShowDialog(this);
-            if (state)
-            {
-                var path = CreateFileDialog.FileName;
-                FilePath = path;
-                AddLog($"Creating {path}...");
-                TryLoad(path, ManagingType.Managed);
-                state = App.Editor.Manager.InitNewSFA();
-                if (!state)
-                {
-                    AddLog("Failed create SFA.");
-                    return;
-                }
-                LoadTree();
-            }
-            else
+            if (!state)
             {
                 AddLog("Not selected file to create SFA.");
             }
+
+            var path = CreateFileDialog.FileName;
+            FilePath = path;
+            AddLog($"Creating {path}...");
+            TryLoad(path, ManagingType.Managed);
+            state = App.Editor.Manager.InitNewSFA();
+            if (!state)
+            {
+                AddLog("Failed create SFA.");
+                return;
+            }
+            LoadTree();
         }
 
         private void SaveBTN_Click(object sender, RoutedEventArgs e)
         {
-            if (OpenedFile)
-            {
-                App.Editor.Manager.CommitChanges();
-                AddLog("Changes applied.");
-            }
-            else
+            if (!OpenedFile)
             {
                 AddLog("Failed save SFA, not opened.");
+                return;
             }
+            App.Editor.Manager.CommitChanges();
+            AddLog("Changes applied.");
         }
 
         private void SaveAsBTN_Click(object sender, RoutedEventArgs e)
         {
-            var state = SaveFileDialog.ShowDialog(this);
-            if ((bool)state)
+            if (!OpenedFile)
             {
-
+                AddLog("Failed save SFA, not opened.");
+                return;
             }
-            else
+
+            var state = SaveFileDialog.ShowDialog(this);
+            if (!(bool)state)
             {
                 AddLog("Not selected file path to save SFA.");
+                return;
             }
+
+            AddLog("Not implemented!!!.");
+        }
+
+        private void UnloadBTN_Click(object sender, RoutedEventArgs e)
+        {
+            bool state = App.Editor.UnloadSFA();
+            if (!state)
+            {
+                AddLog("Failed unload SFA file.");
+                return;
+            }
+            ClearControls();
+            AddLog("Unloaded SFA file.");
         }
 
         private void CreateEntry_Click(object sender, RoutedEventArgs e)
         {
+            if (!OpenedFile)
+            {
+                AddLog("Failed create EntryFile in SFA file, not opened.");
+                return;
+            }
             App.Editor.Manager.AddManagedFile(new ManagedFile(EntryName.Text, EntryPath.Text, new byte[] { }));
             LoadTree();
         }
 
         private void RemoveEntry_Click(object sender, RoutedEventArgs e)
         {
+            if (!OpenedFile)
+            {
+                AddLog("Failed remove EntryFile in SFA file, not opened.");
+                return;
+            }
+
             var item = SFATree.SelectedItem;
+            if (item is null)
+            {
+                AddLog("Failed remove EntryFile in SFA file, not selected entry.");
+                return;
+            }
             App.Editor.Manager.RemoveFile((HeaderFile)item);
             LoadTree();
-        }
-
-        private void UnloadBTN_Click(object sender, RoutedEventArgs e)
-        {
-            App.Editor.UnloadSFA();
-            ClearControls();
-            AddLog("Unloaded SFA file.");
         }
 
         private void SFATree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var nw = e.NewValue;
-            if (nw != null)
+            if (nw is HeaderFile hf)
             {
-                var hf = (HeaderFile)nw;
                 var state = App.Editor.Manager.GetStorageFile(hf, out StorageFile sf);
                 if (!state)
                 {
-                    AddLog("Failed get StorageFile from SFA.");
+                    AddLog("Failed get StorageFile from SFA, unknown entry.");
                     return;
                 }
                 DataAsString.Text = App.Editor.Encoding.GetString(sf.Data);
+            }
+            else
+            {
+                AddLog("Failed get StorageFile from SFA, undefined type.");
+                return;
             }
         }
 
         private void SaveString_Click(object sender, RoutedEventArgs e)
         {
             var si = SFATree.SelectedItem;
-            if (si != null)
+            if (si is HeaderFile hf)
             {
-                var hf = (HeaderFile)si;
                 var data = App.Editor.Encoding.GetBytes(DataAsString.Text);
                 var sf = new StorageFile(data);
                 bool state = App.Editor.Manager.SetFile(hf, sf);
                 if (!state)
                     AddLog($"Failed update StorageFile in SFA {hf.Name} ({hf.Path}).");
+            }
+            else
+            {
+                AddLog("Failed save StorageFile in SFA, undefined type.");
             }
         }
         #endregion

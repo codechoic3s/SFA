@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SFA
 {
-    public class SFAStream : IDisposable
+    public class SFAStream : IDisposable, InternalSFAStream
     {
         private Stream Stream;
         private long _LastHeaderPointer;
@@ -198,6 +198,7 @@ namespace SFA
                 result = BitConverter.ToUInt64(buf);
             return state;
         }
+
         private bool ReadData(ulong ptr, ulong length, ulong alllength, out byte[] data)
         {
             data = null;
@@ -217,6 +218,7 @@ namespace SFA
                 return false;
             return true;
         }
+
         private bool Read(ulong ptr, ref byte[] buffer)
         {
             Stream.Position = (long)ptr;
@@ -226,12 +228,33 @@ namespace SFA
                 return false;
             return true;
         }
+        public Task<bool> ReadAsync(ulong ptr, ref byte[] buffer)
+        {
+            byte[] buf = buffer;
+            var task = Task<bool>.Run(async () =>
+            {
+                Stream.Position = (long)ptr;
+                var len = buf.Length;
+                var readed = await Stream.ReadAsync(buf, 0, len);
+                if (len != readed)
+                    return false;
+                return true;
+            });
+            buffer = buf;
+            return task;
+        }
 
         public void Flush() => Stream.Flush();
+
         public void Dispose()
         {
             Stream.Close();
             Stream.Dispose();
+        }
+        public async ValueTask DisposeAsync()
+        {
+            Stream.Close();
+            await Stream.DisposeAsync();
         }
     }
 }
