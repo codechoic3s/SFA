@@ -1,0 +1,72 @@
+﻿<Window x:Class="SFAEditorGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SFAEditorGUI"
+        mc:Ignorable="d"
+        Title="SFAEditorGUI" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="160*"/>
+            <RowDefinition Height="42*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="LogList" Margin="0,1,0,0" Grid.Row="2"/>
+        <Grid x:Name="WorkspaceGrid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="161*"/>
+                <ColumnDefinition Width="639*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="HierarchyManagingGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="301*"/>
+                </Grid.RowDefinitions>
+
+                <ToolBarPanel x:Name="HToolBar" Grid.Row="0" HorizontalAlignment="Left" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="0,3,0,2">
+                    <Button x:Name="CreateEntry" Content="+" Click="CreateEntry_Click"/>
+                    <Separator />
+                    <Button x:Name="RemoveEntry" Content="-" Click="RemoveEntry_Click"/>
+                    <Separator />
+                    <TextBox x:Name="EntryName" Width="70" Text="newentry"/>
+                    <Separator />
+                    <TextBox x:Name="EntryPath" Width="70" Text="newentrypath"/>
+                </ToolBarPanel>
+                <TreeView x:Name="SFATree" Grid.Row="1" SelectedItemChanged="SFATree_SelectedItemChanged"/>
+            </Grid>
+            <TabControl x:Name="EditorsTabs" Grid.Column="1">
+                <TabItem x:Name="RawTab" Header="Raw">
+                    <Grid x:Name="RawTabGrid" Background="#FFE5E5E5">
+                        <ListBox x:Name="EditableDatas"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="StringTab" Header="String">
+                    <Grid x:Name="StringTabGrid" Background="#FFE5E5E5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21"/>
+                            <RowDefinition Height="275*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="DataAsString" TextWrapping="Wrap" Margin="0,21,0,0" Grid.RowSpan="2"/>
+                        <ToolBarPanel x:Name="StringEditorToolBar" Grid.Row="0" HorizontalAlignment="Left" FlowDirection="LeftToRight" Orientation="Horizontal" Width="29">
+                            <Button x:Name="SaveString" Content="Save" Click="SaveString_Click"/>
+                            <Separator />
+                        </ToolBarPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <ToolBarPanel x:Name="Toolbar" HorizontalAlignment="Left" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="0,3,0,2">
+            <Button x:Name="OpenBTN" Content="Open" Click="OpenBTN_Click"/>
+            <Separator />
+            <Button x:Name="CreateBTN" Content="Create" Click="CreateBTN_Click"/>
+            <Separator />
+            <Button x:Name="SaveBTN" Content="Save" Click="SaveBTN_Click"/>
+            <Separator />
+            <Button x:Name="SaveAsBTN" Content="SaveAs" Click="SaveAsBTN_Click"/>
+            <Separator />
+            <Button x:Name="UnloadBTN" Content="Unload" Click="UnloadBTN_Click"/>
+            <Separator />
+        </ToolBarPanel>
+    </Grid>
+</Window>

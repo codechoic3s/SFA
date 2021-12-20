@@ -1,0 +1,12 @@
+F:\VisualStudioProjects\SFA\SFA\bin\Debug\net5.0\SFA.deps.json
+F:\VisualStudioProjects\SFA\SFA\bin\Debug\net5.0\SFA.dll
+F:\VisualStudioProjects\SFA\SFA\bin\Debug\net5.0\ref\SFA.dll
+F:\VisualStudioProjects\SFA\SFA\bin\Debug\net5.0\SFA.pdb
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\SFA.csproj.AssemblyReference.cache
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\SFA.GeneratedMSBuildEditorConfig.editorconfig
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\SFA.AssemblyInfoInputs.cache
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\SFA.AssemblyInfo.cs
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\SFA.csproj.CoreCompileInputs.cache
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\SFA.dll
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\ref\SFA.dll
+F:\VisualStudioProjects\SFA\SFA\obj\Debug\net5.0\SFA.pdb

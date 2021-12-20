@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "SFAEditorGUI/1.0.0": {
+        "dependencies": {
+          "SFAEditor": "1.0.0"
+        },
+        "runtime": {
+          "SFAEditorGUI.dll": {}
+        }
+      },
+      "SFA/1.0.0": {
+        "runtime": {
+          "SFA.dll": {}
+        }
+      },
+      "SFAEditor/1.0.0": {
+        "dependencies": {
+          "SFA": "1.0.0"
+        },
+        "runtime": {
+          "SFAEditor.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SFAEditorGUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SFA/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SFAEditor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

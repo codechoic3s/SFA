@@ -1,0 +1,15 @@
+F:\VisualStudioProjects\SFA\SFAEditor\bin\Debug\net5.0\SFAEditor.deps.json
+F:\VisualStudioProjects\SFA\SFAEditor\bin\Debug\net5.0\SFAEditor.dll
+F:\VisualStudioProjects\SFA\SFAEditor\bin\Debug\net5.0\ref\SFAEditor.dll
+F:\VisualStudioProjects\SFA\SFAEditor\bin\Debug\net5.0\SFAEditor.pdb
+F:\VisualStudioProjects\SFA\SFAEditor\bin\Debug\net5.0\SFA.dll
+F:\VisualStudioProjects\SFA\SFAEditor\bin\Debug\net5.0\SFA.pdb
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.csproj.AssemblyReference.cache
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.GeneratedMSBuildEditorConfig.editorconfig
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.AssemblyInfoInputs.cache
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.AssemblyInfo.cs
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.csproj.CoreCompileInputs.cache
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.dll
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\ref\SFAEditor.dll
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.pdb
+F:\VisualStudioProjects\SFA\SFAEditor\obj\Debug\net5.0\SFAEditor.csproj.CopyComplete
