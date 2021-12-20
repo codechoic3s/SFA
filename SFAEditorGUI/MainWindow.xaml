@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SFAEditorGUI"
+        xmlns:hex="clr-namespace:WpfHexaEditor;assembly=WPFHexaEditor"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="SFAEditorGUI" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid x:Name="MainGrid">
@@ -38,7 +40,25 @@
             <TabControl x:Name="EditorsTabs" Grid.Column="1">
                 <TabItem x:Name="RawTab" Header="Raw">
                     <Grid x:Name="RawTabGrid" Background="#FFE5E5E5">
-                        <ListBox x:Name="EditableDatas"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="19"/>
+                            <RowDefinition Height="281*"/>
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="RawEditorGrid" Grid.Row="1" Background="Black">
+                            <hex:HexEditor x:Name="RawEditor"/>
+                        </Grid>
+                        <ToolBarPanel x:Name="RawToolBar" Grid.Row="0" HorizontalAlignment="Left" FlowDirection="LeftToRight" Orientation="Horizontal">
+                            <Button x:Name="SaveRaw" Content="Save" Click="SaveRaw_Click"/>
+                            <Separator />
+                            <Button x:Name="AddRangeBytes" Content="Add" Click="AddRangeBytes_Click"/>
+                            <Separator />
+                            <Button x:Name="RemoveRangeBytes" Content="Remove" Click="RemoveRangeBytes_Click"/>
+                            <Separator />
+                            <xctk:LongUpDown x:Name="RawStreamIndex" Watermark="index" />
+                            <Separator />
+                            <xctk:LongUpDown x:Name="RawStreamCount" Watermark="count" />
+                            <Separator />
+                        </ToolBarPanel>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="StringTab" Header="String">

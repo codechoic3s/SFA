@@ -17,4 +17,25 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)wpfhexaeditor\2.1.7\contentFiles\any\net5.0-windows7.0\Resources\EBCDIC-NoSpecialChar.tbl" Condition="Exists('$(NuGetPackageRoot)wpfhexaeditor\2.1.7\contentFiles\any\net5.0-windows7.0\Resources\EBCDIC-NoSpecialChar.tbl')">
+      <NuGetPackageId>WPFHexaEditor</NuGetPackageId>
+      <NuGetPackageVersion>2.1.7</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\EBCDIC-NoSpecialChar.tbl</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)wpfhexaeditor\2.1.7\contentFiles\any\net5.0-windows7.0\Resources\EBCDIC.tbl" Condition="Exists('$(NuGetPackageRoot)wpfhexaeditor\2.1.7\contentFiles\any\net5.0-windows7.0\Resources\EBCDIC.tbl')">
+      <NuGetPackageId>WPFHexaEditor</NuGetPackageId>
+      <NuGetPackageVersion>2.1.7</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\EBCDIC.tbl</Link>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgExtended_Wpf_Toolkit Condition=" '$(PkgExtended_Wpf_Toolkit)' == '' ">C:\Users\denis\.nuget\packages\extended.wpf.toolkit\4.2.0</PkgExtended_Wpf_Toolkit>
+  </PropertyGroup>
 </Project>

@@ -3,6 +3,7 @@ using SFA.Elements;
 using SFAEditor;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfHexaEditor.Core;
 
 namespace SFAEditorGUI
 {
@@ -37,6 +39,8 @@ namespace SFAEditorGUI
             App = app;
             InitDialogs();
             App.Editor.SetStringEncoding(Encoding.UTF8);
+
+            RawEditor.CustomBackgroundBlockItems = new List<CustomBackgroundBlock>();
         }
 
         private void InitDialogs()
@@ -79,6 +83,11 @@ namespace SFAEditorGUI
         {
             SFATree.ItemsSource = null;
             DataAsString.Text = "";
+            if (RawEditor.Stream != null)
+            {
+                RawEditor.Stream.Close();
+                RawEditor.Stream = null;
+            }
         }
 
         #region WindowNative
@@ -221,6 +230,16 @@ namespace SFAEditorGUI
                     AddLog("Failed get StorageFile from SFA, unknown entry.");
                     return;
                 }
+                var data = sf.Data;
+                var dco = data.LongLength;
+
+                if (RawEditor.Stream != null)
+                {
+                    RawEditor.Stream.Close();
+                }
+                var ms = new MemoryStream();
+                ms.Write(data);
+                RawEditor.Stream = ms;
                 DataAsString.Text = App.Editor.Encoding.GetString(sf.Data);
             }
             else
@@ -232,6 +251,12 @@ namespace SFAEditorGUI
 
         private void SaveString_Click(object sender, RoutedEventArgs e)
         {
+            if (!OpenedFile)
+            {
+                AddLog("Failed save StorageFile in SFA, not opened.");
+                return;
+            }
+
             var si = SFATree.SelectedItem;
             if (si is HeaderFile hf)
             {
@@ -246,7 +271,104 @@ namespace SFAEditorGUI
                 AddLog("Failed save StorageFile in SFA, undefined type.");
             }
         }
-        #endregion
+        private void SaveRaw_Click(object sender, RoutedEventArgs e)
+        {
+            if (!OpenedFile)
+            {
+                AddLog("Failed save StorageFile in SFA, not opened.");
+                return;
+            }
 
+            if (RawEditor.Stream == null)
+            {
+                AddLog("Failed save StorageFile in SFA, unknown data.");
+                return;
+            }
+
+            var si = SFATree.SelectedItem;
+            if (si is HeaderFile hf)
+            {
+                var data = ((MemoryStream)RawEditor.Stream).ToArray();
+                var sf = new StorageFile(data);
+                bool state = App.Editor.Manager.SetFile(hf, sf);
+                if (!state)
+                    AddLog($"Failed update StorageFile in SFA {hf.Name} ({hf.Path}).");
+            }
+            else
+            {
+                AddLog("Failed save StorageFile in SFA, undefined type.");
+            }
+        }
+
+        private void AddRangeBytes_Click(object sender, RoutedEventArgs e)
+        {
+            if (!OpenedFile)
+            {
+                AddLog("Failed add range to StorageFile in SFA, not opened.");
+                return;
+            }
+
+            if (RawEditor.Stream == null)
+            {
+                AddLog("Failed add range to StorageFile in SFA, unknown data.");
+                return;
+            }
+
+            var index = (long)RawStreamIndex.Value;
+            var count = (long)RawStreamCount.Value;
+
+            var stream = (MemoryStream)RawEditor.Stream;
+
+            if (count == 0 || index > stream.Length)
+                return;
+            var sar = stream.ToArray();
+            var list = new List<byte>(sar);
+            list.InsertRange((int)index, new byte[count]);
+            stream.Position = 0;
+            RawEditor.Stream.Close();
+            RawEditor.Stream = new MemoryStream(list.ToArray());
+            /*
+            var buf = new byte[count];
+            var co = stream.Length - 1 - index;
+            stream.Read(buf, (int)index, (int)co); // reserve
+
+            stream.Position = index;
+            stream.Write(new byte[count], (int)index, (int)count); // write new data
+
+            stream.Write(buf, (int)(index + count), (int)co);
+            */
+        }
+
+        private void RemoveRangeBytes_Click(object sender, RoutedEventArgs e)
+        {
+            if (!OpenedFile)
+            {
+                AddLog("Failed add range to StorageFile in SFA, not opened.");
+                return;
+            }
+
+            if (RawEditor.Stream == null)
+            {
+                AddLog("Failed add range to StorageFile in SFA, unknown data.");
+                return;
+            }
+
+            var index = (long)RawStreamIndex.Value;
+            var count = (long)RawStreamCount.Value;
+
+            var stream = (MemoryStream)RawEditor.Stream;
+
+            if (count == 0 || index > stream.Length)
+                return;
+
+            var sar = stream.ToArray();
+            var list = new List<byte>(sar);
+            list.RemoveRange((int)index, (int)count);
+            stream.Position = 0;
+            RawEditor.Stream.Close();
+            RawEditor.Stream = new MemoryStream(list.ToArray());
+        }
+
+        #endregion
     }
 }

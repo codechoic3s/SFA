@@ -2,6 +2,102 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
+      "Extended.Wpf.Toolkit/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.dll": {},
+          "lib/net40/Xceed.Wpf.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.dll": {},
+          "lib/net40/Xceed.Wpf.Toolkit.dll": {}
+        },
+        "resource": {
+          "lib/net40/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "cs-CZ"
+          },
+          "lib/net40/de/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/hu/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net40/it/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja-JP/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net40/pt-BR/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net40/ro/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net40/ru/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/sv/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net40/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        }
+      },
+      "WPFHexaEditor/2.1.7": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/WPFHexaEditor.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/WPFHexaEditor.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ],
+        "resource": {
+          "lib/net5.0-windows7.0/fr-CA/WPFHexaEditor.resources.dll": {
+            "locale": "fr-CA"
+          },
+          "lib/net5.0-windows7.0/pl-PL/WPFHexaEditor.resources.dll": {
+            "locale": "pl-PL"
+          },
+          "lib/net5.0-windows7.0/pt-BR/WPFHexaEditor.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net5.0-windows7.0/ru-RU/WPFHexaEditor.resources.dll": {
+            "locale": "ru-RU"
+          },
+          "lib/net5.0-windows7.0/zh-CN/WPFHexaEditor.resources.dll": {
+            "locale": "zh-CN"
+          }
+        },
+        "contentFiles": {
+          "contentFiles/any/net5.0-windows7.0/Resources/EBCDIC-NoSpecialChar.tbl": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net5.0-windows7.0/Resources/EBCDIC.tbl": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
       "SFA/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -28,6 +124,77 @@
     }
   },
   "libraries": {
+    "Extended.Wpf.Toolkit/4.2.0": {
+      "sha512": "1yxsUfhyNA8A85sO6R8avjmRHyJXSR3icB5Puk7Ri65L4IgejTElU9dVxAGfP21hLQGOFQbBRno4FyuN8dTo6w==",
+      "type": "package",
+      "path": "extended.wpf.toolkit/4.2.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "Xceed_Logo_Retina-400x400.png",
+        "extended.wpf.toolkit.4.2.0.nupkg.sha512",
+        "extended.wpf.toolkit.nuspec",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.dll",
+        "lib/net40/Xceed.Wpf.Toolkit.dll",
+        "lib/net40/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/de/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/es/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/fr/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/hu/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/it/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ja-JP/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/pt-BR/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ro/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ru/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/sv/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll",
+        "tools/install.ps1"
+      ]
+    },
+    "WPFHexaEditor/2.1.7": {
+      "sha512": "PvwlfevfPyMKZEvK0JB+sXqW06dUbGagWzVaBN5AnQqqAtSZUigug9j6aAwJ+nmQW+kHKEUrm/0pJDevFj5gxg==",
+      "type": "package",
+      "path": "wpfhexaeditor/2.1.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Logo-Icon.png",
+        "content/Resources/EBCDIC-NoSpecialChar.tbl",
+        "content/Resources/EBCDIC.tbl",
+        "contentFiles/any/net47/Resources/EBCDIC-NoSpecialChar.tbl",
+        "contentFiles/any/net47/Resources/EBCDIC.tbl",
+        "contentFiles/any/net48/Resources/EBCDIC-NoSpecialChar.tbl",
+        "contentFiles/any/net48/Resources/EBCDIC.tbl",
+        "contentFiles/any/net5.0-windows7.0/Resources/EBCDIC-NoSpecialChar.tbl",
+        "contentFiles/any/net5.0-windows7.0/Resources/EBCDIC.tbl",
+        "lib/net47/WPFHexaEditor.dll",
+        "lib/net47/fr-CA/WPFHexaEditor.resources.dll",
+        "lib/net47/pl-PL/WPFHexaEditor.resources.dll",
+        "lib/net47/pt-BR/WPFHexaEditor.resources.dll",
+        "lib/net47/ru-RU/WPFHexaEditor.resources.dll",
+        "lib/net47/zh-CN/WPFHexaEditor.resources.dll",
+        "lib/net48/WPFHexaEditor.dll",
+        "lib/net48/fr-CA/WPFHexaEditor.resources.dll",
+        "lib/net48/pl-PL/WPFHexaEditor.resources.dll",
+        "lib/net48/pt-BR/WPFHexaEditor.resources.dll",
+        "lib/net48/ru-RU/WPFHexaEditor.resources.dll",
+        "lib/net48/zh-CN/WPFHexaEditor.resources.dll",
+        "lib/net5.0-windows7.0/WPFHexaEditor.dll",
+        "lib/net5.0-windows7.0/fr-CA/WPFHexaEditor.resources.dll",
+        "lib/net5.0-windows7.0/pl-PL/WPFHexaEditor.resources.dll",
+        "lib/net5.0-windows7.0/pt-BR/WPFHexaEditor.resources.dll",
+        "lib/net5.0-windows7.0/ru-RU/WPFHexaEditor.resources.dll",
+        "lib/net5.0-windows7.0/zh-CN/WPFHexaEditor.resources.dll",
+        "license.txt",
+        "wpfhexaeditor.2.1.7.nupkg.sha512",
+        "wpfhexaeditor.nuspec"
+      ]
+    },
     "SFA/1.0.0": {
       "type": "project",
       "path": "../SFA/SFA.csproj",
@@ -41,7 +208,9 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "SFAEditor >= 1.0.0"
+      "Extended.Wpf.Toolkit >= 4.2.0",
+      "SFAEditor >= 1.0.0",
+      "WPFHexaEditor >= 2.1.7"
     ]
   },
   "packageFolders": {
@@ -94,6 +263,16 @@
     "frameworks": {
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
+        "dependencies": {
+          "Extended.Wpf.Toolkit": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "WPFHexaEditor": {
+            "target": "Package",
+            "version": "[2.1.7, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -115,5 +294,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Extended.Wpf.Toolkit 4.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Extended.Wpf.Toolkit",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }
