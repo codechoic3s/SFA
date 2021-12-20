@@ -94,6 +94,7 @@ namespace SFAEditorGUI
             if (!state)
             {
                 AddLog("Not selected file to load SFA.");
+                return;
             }
 
             if (!OpenFileDialog.CheckPathExists)
@@ -123,6 +124,7 @@ namespace SFAEditorGUI
             if (!state)
             {
                 AddLog("Not selected file to create SFA.");
+                return;
             }
 
             var path = CreateFileDialog.FileName;

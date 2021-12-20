@@ -23,3 +23,4 @@ F:\VisualStudioProjects\SFA\SFAEditorGUI\bin\Debug\net5.0-windows\SFA.dll
 F:\VisualStudioProjects\SFA\SFAEditorGUI\bin\Debug\net5.0-windows\SFAEditor.dll
 F:\VisualStudioProjects\SFA\SFAEditorGUI\bin\Debug\net5.0-windows\SFAEditor.pdb
 F:\VisualStudioProjects\SFA\SFAEditorGUI\bin\Debug\net5.0-windows\SFA.pdb
+F:\VisualStudioProjects\SFA\SFAEditorGUI\obj\Debug\net5.0-windows\SFAEditorGUI.csproj.CopyComplete
