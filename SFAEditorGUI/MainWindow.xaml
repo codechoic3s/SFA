@@ -16,7 +16,7 @@
             <RowDefinition Height="42*"/>
         </Grid.RowDefinitions>
 
-        <ToolBarPanel Grid.Row="0" x:Name="Toolbar" HorizontalAlignment="Left" Orientation="Horizontal">
+        <ToolBarPanel Grid.Row="0" x:Name="Toolbar" HorizontalAlignment="Stretch" Orientation="Horizontal">
             <Button x:Name="OpenBTN" Content="Open" Click="OpenBTN_Click"/>
             <Separator />
             <Button x:Name="CreateBTN" Content="Create" Click="CreateBTN_Click"/>
@@ -36,11 +36,11 @@
             </Grid.ColumnDefinitions>
             <Grid x:Name="HierarchyManagingGrid" Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="25"/>
                     <RowDefinition Height="301*"/>
                 </Grid.RowDefinitions>
 
-                <ToolBarPanel x:Name="HToolBar" Grid.Row="0" HorizontalAlignment="Left" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="0,3,0,2">
+                <ToolBarPanel x:Name="HToolBar" Grid.Row="0" HorizontalAlignment="Stretch" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="0,3,0,2">
                     <Button x:Name="CreateEntry" Content="+" Click="CreateEntry_Click"/>
                     <Separator />
                     <Button x:Name="RemoveEntry" Content="-" Click="RemoveEntry_Click"/>

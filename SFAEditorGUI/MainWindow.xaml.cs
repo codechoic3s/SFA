@@ -32,6 +32,8 @@ namespace SFAEditorGUI
         private string FilePath;
         private bool OpenedFile;
 
+        private ScrollViewer ScrollViewer;
+
         private App App;
         public MainWindow(App app)
         {
@@ -40,7 +42,15 @@ namespace SFAEditorGUI
             InitDialogs();
             App.Editor.SetStringEncoding(Encoding.UTF8);
 
+            base.Loaded += MainWindow_Loaded;
+
             RawEditor.CustomBackgroundBlockItems = new List<CustomBackgroundBlock>();
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var border = (Border)VisualTreeHelper.GetChild(LogList, 0);
+            ScrollViewer = (ScrollViewer)VisualTreeHelper.GetChild(border, 0);
         }
 
         private void InitDialogs()
@@ -95,6 +105,7 @@ namespace SFAEditorGUI
         public void AddLog(string text)
         {
             LogList.Items.Add(text);
+            ScrollViewer.ScrollToBottom();
         }
 
         private void OpenBTN_Click(object sender, RoutedEventArgs e)
